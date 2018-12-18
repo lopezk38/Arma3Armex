@@ -118,5 +118,5 @@ Supports ports to other maps simply by placing cones in 3Den editor and putting 
 		0 = ["AmmoboxInit",[this,true]] spawn BIS_fnc_arsenal;
 		LOOT_ANCHOR = this;
 		
-	Finish the port by placing the mission scripts into the mission folder. Do not overwrite mission.sqf but overwrite everything else
+	Finish the port by placing the mission scripts into the mission folder. Do not overwrite mission.sqm but overwrite everything else
 	
