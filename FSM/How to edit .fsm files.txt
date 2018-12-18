@@ -1,0 +1,26 @@
+You need to download Arma 3 Tools from Steam. Get it either from the Tools section in Steam (Hover over Library and click Tools in the dropdown that appears) or from here:
+	https://store.steampowered.com/app/233800/Arma_3_Tools/
+	
+	Run it from the Tools section in Steam (Hover over Library and click Tools in the dropdown that appears), select Play Arma 3 Tools and click play. Run the FSM editor. It's
+old and kinda janky but it works. Click the open file button and open the .fsm file.
+
+    tldr: it's a flow chart dummy, the diamonds are the questions and the rectangles are what you do 
+
+	You will see a state diagram appear in front of you. Each rectangle is a state that executes code when it is entered. Click on a state to see what code is attached to it.
+Each diamond is a condition. Yellow ones are normal conditions. Green ones are true conditions. Conditions have 3 main attributes - The condition that they evaluate
+(similar to the condition in an if statement), an action they perform when entered, and a priority number. There is also a red rectangle with rounded edges. This is the state
+that the diagram begins at when executed. There can also be an end state, but I did not use one in this case since the mission is intended to loop infinitely. There are also
+arrows connecting the various states and conditions together.
+
+	The combination of states and conditions form what is called a Finite State Machine (FSM). Basically, all an FSM does is constantly transition between states through
+conditions while executing the code in each state they enter on the way. FSMs can only exit a state by following the arrows that lead out of the state it's in. This means that
+when the FSM tries to leave a state (Which it will always try to do once per frame rendered by the game engine), it will look to where each arrow is connected and will see if it
+can go there. If the arrow is connected back to the state it is it, it will get stuck in a loop of leaving that state and instantly re-entering it, executing the code inside that
+state every time it re-enters. If the arrow is connected to a condition, it will evaluate the condition (much like how an if statement does) to determine if it can pass through
+that condition. Think of conditions like doors that the FSM can walk through. If the door is open (AKA if the condition is true), it will walk through it. If the door is closed
+(AKA the condition is false), it will not be able to walk through and will look for another path. If no path is available, the FSM will probably crash (I haven't tried it). 
+Therefore you need to make sure that at least one condition leading out of the current state is true. You may remember the priority attribute I mentioned earlier. By default, 
+each condition has a priority of 0. If a state has multiple conditions leading out from it, it will evaluate the condition of the condition with the highest priority value first.
+This means that if that condition is true, the FSM will not even evaluate the condition of any other conditions leading out of it. This is how the delay conditions in missionFlow.fsm
+function despite having true conditions leading out of the state. The FSM always checks the delay condition first, so if the delay condition evaluates to true, it will immediately
+take that path and ignore the true condition. 
