@@ -1,9 +1,9 @@
 /*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, missionFlow">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"initMission",0,4346,-29.214203,-633.183594,60.785797,-583.183594,0.000000,"initMission"};
+item0[] = {"initMission",0,250,-29.214203,-633.183594,60.785797,-583.183594,0.000000,"initMission"};
 item1[] = {"true",8,218,-30.558350,-566.218262,59.441650,-516.218262,0.000000,"true"};
-item2[] = {"initSandbox",2,250,-35.180023,-346.339783,54.819992,-296.339783,0.000000,"initSandbox"};
+item2[] = {"initSandbox",2,4346,-35.180023,-346.339783,54.819992,-296.339783,0.000000,"initSandbox"};
 item3[] = {"true",8,218,-34.986702,-270.426392,55.013306,-220.426392,0.000000,"true"};
 item4[] = {"Sandbox",2,250,-34.840488,-191.932480,55.159531,-141.932480,0.000000,"Sandbox"};
 item5[] = {"__opStarted",4,218,-137.577637,-192.295700,-47.577637,-142.295700,1.000000,"!opStarted"};
@@ -73,8 +73,8 @@ link36[] = {29,30};
 link37[] = {29,31};
 link38[] = {30,16};
 link39[] = {31,29};
-globals[] = {0.000000,0,0,0,0,640,480,1,39,6316128,1,-362.742950,271.119720,-147.681946,-881.705139,867,1004,1};
-window[] = {2,-1,-1,-32000,-32000,1206,292,1799,357,3,885};
+globals[] = {0.000000,0,0,0,0,640,480,1,39,6316128,1,-362.742950,271.119720,401.641083,-331.536469,868,1004,1};
+window[] = {2,-1,-1,-32000,-32000,867,100,1607,18,3,886};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -167,6 +167,8 @@ class FSM
                          "playerVehicles = [];" \n
                          "playerLoadouts = [];" \n
                          "playerLoadoutsUpdating = false;" \n
+                         "" \n
+                         "playerWeaponTypes = [false, false]; //anti tank, anti air" \n
                          "" \n
                          "_initTime = diag_tickTime;" \n
                          "//systemChat ""FSM initialized"";"/*%FSM</STATEINIT""">*/;
@@ -309,7 +311,7 @@ class FSM
                          "			case 7: {if (count(_turrets) <= 0) then {_turrets = + loot_StaticArms;}; _lootItem = selectRandom _turrets; _turrets = _turrets - [_lootItem];};" \n
                          "  	 		default {systemChat ""Unknown loot type"";};" \n
                          "		};" \n
-                         "		_curPos = [_curObj select 0, _curObj select 1, (_curObj select 2) + .05];" \n
+                         "		_curPos = [_curObj select 0, _curObj select 1, (_curObj select 2) + .04];" \n
                          "		_curDir = (lootSpawnDirections_all select i_initSandbox) select j_initSandbox;" \n
                          "		if (i_initSandbox >= 3) then {" \n
                          "			_spawnedVehic = createVehicle [_lootItem, [0, 0, 300], [], 5, ""CAN_COLLIDE""];" \n
@@ -453,6 +455,40 @@ class FSM
                          "" \n
                          "playerVehicles = [];" \n
                          "[""player\tellServerSelVeh.sqf""] remoteExec [""execVM""];" \n
+                         "" \n
+                         "playerWeaponTypes = [false, false]; //anti tank, anti air" \n
+                         "{" \n
+                         "	_tempLoadout = _x call compile preprocessFileLineNumbers ""player\GUI\loadout\flattenArray.sqf"";" \n
+                         "	{" \n
+                         "		if (playerWeaponTypes isEqualTo [true, true]) exitWith {};" \n
+                         "		_item = _x;" \n
+                         "		_type = -1;" \n
+                         "		if (_item isEqualType """") then {" \n
+                         "			if (_item != """" && _item != ""/a"") then {" \n
+                         "				_type = getNumber(configFile >> ""CfgWeapons"" >> _item >> ""type"");" \n
+                         "				if (_type == 4) then {" \n
+                         "					_mag = getArray (configFile >> ""CfgWeapons"" >> _item >> ""magazines"");" \n
+                         "					{" \n
+                         "						_ammo = getText(configFile >> ""CfgMagazines"" >> _x >> ""ammo"");" \n
+                         "						if (_ammo != """") then {" \n
+                         "							_airLock = getNumber(configFile >> ""CfgAmmo"" >> _ammo >> ""airLock"");" \n
+                         "							_warheadName = getText(configFile >> ""CfgAmmo"" >> _ammo >> ""warheadName"");" \n
+                         "							if (_airLock != 0) then { //if has lockon" \n
+                         "								playerWeaponTypes set [1, true];" \n
+                         "								if (_airLock == 1) then { //if can lockon to ground targets" \n
+                         "									playerWeaponTypes set [0, true];" \n
+                         "								};" \n
+                         "							};" \n
+                         "							if (_warheadName != """") then { //if explosive. Includes 40MM HE grenades" \n
+                         "							playerWeaponTypes set [0, true];" \n
+                         "							};" \n
+                         "						};" \n
+                         "					} forEach _mag;" \n
+                         "				};" \n
+                         "			};" \n
+                         "		};" \n
+                         "	} forEach _tempLoadout;" \n
+                         "} forEach playerLoadouts;" \n
                          "" \n
                          "missionEnded = false;" \n
                          "lastMissionPos = SPAWN_POINT;" \n
