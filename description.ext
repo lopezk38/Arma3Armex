@@ -1,0 +1,62 @@
+class Header
+{
+	gameType =  Sandbox;		// Game type
+	minPlayers =  1;			// minimum number of players the mission supports
+	maxPlayers = 12;			// maximum number of players the mission supports
+};
+
+onLoadMission = "Armex for Arma 3";
+onLoadIntro = "Test out equipment and play with your friends";
+onLoadName = "Armex for Arma 3";
+briefingName = "Armex for Arma 3";
+overviewText = "Sandbox that spawns weapons and vehicles that can be used in optional missions";
+author = "Nitroge";
+
+respawn = 3;
+respawnOnStart = 0;
+respawnDialog = 1;
+respawnTemplates[] = {"Tickets"};
+respawnDelay = 5;
+disabledAI = 1;
+
+ReviveMode = 1;                         //0: disabled, 1: enabled, 2: controlled by player attributes
+ReviveUnconsciousStateMode = 0;         //0: basic, 1: advanced, 2: realistic
+ReviveRequiredTrait = 0;                //0: none, 1: medic trait is required
+ReviveRequiredItems = 0;                //0: none, 1: medkit, 2: medkit or first aid kit
+ReviveRequiredItemsFakConsumed = 0;     //0: first aid kit is not consumed upon revive, 1: first aid kit is consumed
+ReviveDelay = 5;                        //time needed to revive someone (in secs)
+ReviveMedicSpeedMultiplier = 2;         //speed multiplier for revive performed by medic
+ReviveForceRespawnDelay = 3;            //time needed to perform force respawn (in secs)
+ReviveBleedOutDelay = 120;              //unconscious state duration (in secs)
+enableDebugConsole = 1;
+
+saving = 0;
+skipLobby = 1;
+wreckManagerMode = 1; //remove vehicle wrecks
+debriefing = 0;
+
+class Params
+{
+    #include "\a3\Functions_F\Params\paramRevive.hpp"
+};
+
+class RscTitles
+{
+	#include "player\GUI\uiMapPointer.hpp"
+	#include "player\GUI\redOverlay.hpp"
+	#include "player\GUI\missionDescription.hpp"
+	#include "player\GUI\winMessage.hpp"
+	#include "player\GUI\loseMessage.hpp"
+	
+	class Default 
+        {
+           idd = -1;
+           fadein = 0;
+           fadeout = 0;
+           duration = 0;
+        };
+};
+
+
+#include "player\GUI\defines.hpp"
+#include "player\GUI\loadout\loadoutGUI.hpp"

@@ -1,0 +1,853 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, missionFlow">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"initMission",0,250,-29.214203,-633.183594,60.785797,-583.183594,0.000000,"initMission"};
+item1[] = {"true",8,218,-30.558350,-566.218262,59.441650,-516.218262,0.000000,"true"};
+item2[] = {"initSandbox",2,250,-35.180023,-346.339783,54.819992,-296.339783,0.000000,"initSandbox"};
+item3[] = {"true",8,218,-34.986702,-270.426392,55.013306,-220.426392,0.000000,"true"};
+item4[] = {"Sandbox",2,250,-34.840488,-191.932480,55.159531,-141.932480,0.000000,"Sandbox"};
+item5[] = {"__opStarted",4,218,-137.577637,-192.295700,-47.577637,-142.295700,1.000000,"!opStarted"};
+item6[] = {"true__low_pri_",8,218,-34.852272,-124.576462,55.147736,-74.576462,0.000000,"true (low pri)"};
+item7[] = {"initSubMission",2,250,-34.581089,-55.302383,55.418930,-5.302383,0.000000,"initSubMission"};
+item8[] = {"true",8,218,-34.151436,17.403809,55.848572,67.403809,0.000000,"true"};
+item9[] = {"SubMission",2,250,-34.009007,500.450134,55.991013,550.450134,0.000000,"SubMission"};
+item10[] = {"true__low_pri_",8,218,-32.046768,568.246643,57.953232,618.246643,0.000000,"true (low pri)"};
+item11[] = {"opEnded",4,218,74.483360,499.946655,164.483368,549.946716,2.000000,"opEnded"};
+item12[] = {"missionEnded",4,218,-233.349976,500.915588,-143.349976,550.915588,1.000000,"missionEnded"};
+item13[] = {"Delay",2,250,-31.403168,-490.185120,58.596848,-440.185120,0.000000,"Delay"};
+item14[] = {"true__low_pri_",8,218,-32.018410,-420.754395,57.981598,-370.754272,0.000000,"true (low pri)"};
+item15[] = {"___1_sec_",4,218,-132.932404,-491.653015,-42.932404,-441.652954,1.000000,"!(1 sec)"};
+item16[] = {"spawnSubMission",2,4346,-32.346622,222.981964,57.653397,272.981873,0.000000,"spawnSubMission"};
+item17[] = {"",7,210,115.612984,-325.410736,123.612984,-317.410736,0.000000,""};
+item18[] = {"",7,210,-192.372650,244.456314,-184.372650,252.456390,0.000000,""};
+item19[] = {"true",8,218,-32.213745,287.373901,57.786255,337.373901,0.000000,"true"};
+item20[] = {"Delay_1",2,250,-33.058563,363.407043,56.941437,413.407043,0.000000,"Delay"};
+item21[] = {"true__low_pri_",8,218,-33.673798,432.837769,56.326202,482.837891,0.000000,"true (low pri)"};
+item22[] = {"___2_sec_",4,218,-134.587799,361.939148,-44.587799,411.939209,1.000000,"!(2 sec)"};
+item23[] = {"Delay_2",2,250,-233.148071,360.672791,-143.148041,410.672791,0.000000,"Delay"};
+item24[] = {"true__low_pri_",8,218,-233.148056,286.690704,-143.148056,336.690704,0.000000,"true (low pri)"};
+item25[] = {"___1_sec_",4,218,-338.309540,361.278137,-248.309540,411.278137,1.000000,"!(1 sec)"};
+item26[] = {"Delay_3",2,250,74.619568,363.676483,164.619583,413.676483,0.000000,"Delay"};
+item27[] = {"___1_sec_",4,218,179.289307,364.381958,269.289307,414.381958,1.000000,"!(1 sec)"};
+item28[] = {"true__low_pri_",8,218,74.270996,286.721008,164.270996,336.721008,0.000000,"true (low pri)"};
+item29[] = {"waitVehList",2,250,-33.420322,85.395966,56.579697,135.395966,0.000000,"waitVehList"};
+item30[] = {"true__low_pri_",8,218,-33.420296,155.581451,56.579712,205.581451,0.000000,"true (low pri)"};
+item31[] = {"veh___players",4,218,-140.160767,84.664825,-50.160767,134.664825,1.000000,"veh < players"};
+link0[] = {0,1};
+link1[] = {1,13};
+link2[] = {2,3};
+link3[] = {3,4};
+link4[] = {4,5};
+link5[] = {4,6};
+link6[] = {5,4};
+link7[] = {6,7};
+link8[] = {7,8};
+link9[] = {8,29};
+link10[] = {9,10};
+link11[] = {9,11};
+link12[] = {9,12};
+link13[] = {10,9};
+link14[] = {11,26};
+link15[] = {12,23};
+link16[] = {13,14};
+link17[] = {13,15};
+link18[] = {14,2};
+link19[] = {15,13};
+link20[] = {16,19};
+link21[] = {17,2};
+link22[] = {18,16};
+link23[] = {19,20};
+link24[] = {20,21};
+link25[] = {20,22};
+link26[] = {21,9};
+link27[] = {22,20};
+link28[] = {23,24};
+link29[] = {23,25};
+link30[] = {24,18};
+link31[] = {25,23};
+link32[] = {26,27};
+link33[] = {26,28};
+link34[] = {27,26};
+link35[] = {28,17};
+link36[] = {29,30};
+link37[] = {29,31};
+link38[] = {30,16};
+link39[] = {31,29};
+globals[] = {0.000000,0,0,0,0,640,480,1,39,6316128,1,-362.742950,271.119720,682.115173,-51.908016,867,1004,1};
+window[] = {2,-1,-1,-1,-1,953,120,1627,104,3,885};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "missionFlow";
+        class States
+        {
+                /*%FSM<STATE "initMission">*/
+                class initMission
+                {
+                        name = "initMission";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"//systemChat ""FSM started"";" \n
+                         "" \n
+                         "opStarted = false;" \n
+                         "opEnded = false;" \n
+                         "missionStarted = false;" \n
+                         "missionEnded = false;" \n
+                         "" \n
+                         "ONE_FRAME = (1/60);" \n
+                         "" \n
+                         "mainFSM_State = ""initMission"";" \n
+                         "publicVariable ""mainFSM_State""; //sync variable with clients" \n
+                         "" \n
+                         "allowRevive = false;" \n
+                         "publicVariable ""allowRevive"";" \n
+                         "" \n
+                         "showNames = true;" \n
+                         "publicVariable ""showNames"";" \n
+                         "" \n
+                         "respawnAllowed = true;" \n
+                         "publicVariable ""respawnAllowed"";" \n
+                         "" \n
+                         "voteEnabled = false;" \n
+                         "publicVariable ""voteEnabled"";" \n
+                         "" \n
+                         "show3DMarker = false;" \n
+                         "publicVariable ""show3DMarker"";" \n
+                         "" \n
+                         "pos3DMarker = [0, 0, 0];" \n
+                         "publicVariable ""pos3DMarker"";" \n
+                         "" \n
+                         "name3DMarker = """";" \n
+                         "publicVariable ""name3DMarker"";" \n
+                         "" \n
+                         "{" \n
+                         "	if (side _x == west && !(isPlayer _x)) then {" \n
+                         "		deleteVehicle _x; //delete unused units" \n
+                         "	} else {" \n
+                         "		if (side _x == west) then {" \n
+                         "			_x setPosATL (SPAWN_POINT findEmptyPosition [0, 10]); //set sandbox spawnpoint" \n
+                         "		};" \n
+                         "	};" \n
+                         "} forEach allUnits;" \n
+                         "" \n
+                         "lootSpawnPoints_All = [lootSpawnPoints_Weapons," \n
+                         "							  lootSpawnPoints_Launchers," \n
+                         "							  lootSpawnPoints_Explosives," \n
+                         "							  lootSpawnPoints_Helicopters," \n
+                         "							  lootSpawnPoints_Planes," \n
+                         "							  lootSpawnPoints_Armor," \n
+                         "							  lootSpawnPoints_Automotives," \n
+                         "							  lootSpawnPoints_StaticArms" \n
+                         "							  ];" \n
+                         "" \n
+                         "lootSpawnDirections_All = [lootSpawnDirections_Weapons," \n
+                         "							  lootSpawnDirections_Launchers," \n
+                         "							  lootSpawnDirections_Explosives," \n
+                         "							  lootSpawnDirections_Helicopters," \n
+                         "							  lootSpawnDirections_Planes," \n
+                         "							  lootSpawnDirections_Armor," \n
+                         "							  lootSpawnDirections_Automotives," \n
+                         "							  lootSpawnDirections_StaticArms" \n
+                         "							  ];" \n
+                         "" \n
+                         "lootItems = [];" \n
+                         "" \n
+                         "votes = 0;" \n
+                         "" \n
+                         "execVM ""loot\lootList.sqf"";" \n
+                         "execVM ""operation\missions\list.sqf"";" \n
+                         "" \n
+                         "createCenter east;" \n
+                         "" \n
+                         "_logicCenter = createCenter sideLogic;" \n
+                         "_logicGroup = createGroup _logicCenter;" \n
+                         "_LogicObject = _logicGroup createUnit [""Logic"", [0,0,0], [], 0, ""NONE""];" \n
+                         "_LogicObject setVehicleVarName ""Logic"";" \n
+                         "missionNamespace setVariable [""Logic"", _LogicObject, true];" \n
+                         "" \n
+                         "playerVehicles = [];" \n
+                         "" \n
+                         "_initTime = diag_tickTime;" \n
+                         "//systemChat ""FSM initialized"";"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "true">*/
+                                class true
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Delay";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"lootSpawnPoints_All = [lootSpawnPoints_Weapons," \n
+                                         "							  lootSpawnPoints_Launchers," \n
+                                         "							  lootSpawnPoints_Explosives," \n
+                                         "							  lootSpawnPoints_Helicopters," \n
+                                         "							  lootSpawnPoints_Planes," \n
+                                         "							  lootSpawnPoints_Armor," \n
+                                         "							  lootSpawnPoints_Automotives," \n
+                                         "							  lootSpawnPoints_StaticArms" \n
+                                         "							  ];"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "initSandbox">*/
+                class initSandbox
+                {
+                        name = "initSandbox";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"mainFSM_State = ""initSandbox"";" \n
+                         "publicVariable ""mainFSM_State"";" \n
+                         "//systemChat mainFSM_State;" \n
+                         "" \n
+                         "opStarted = false;" \n
+                         "opEnded = false;" \n
+                         "missionStarted = false;" \n
+                         "missionEnded = false;" \n
+                         "" \n
+                         "allowRevive = true;" \n
+                         "publicVariable ""allowRevive"";" \n
+                         "" \n
+                         "showNames = false;" \n
+                         "publicVariable ""showNames"";" \n
+                         "" \n
+                         "respawnAllowed = true;" \n
+                         "publicVariable ""respawnAllowed"";" \n
+                         "[1, ""player\resetTickets.sqf""] remoteExec [""execVM""];" \n
+                         "" \n
+                         "show3DMarker = false;" \n
+                         "publicVariable ""show3DMarker"";" \n
+                         "" \n
+                         "pos3DMarker = [0, 0, 0];" \n
+                         "publicVariable ""pos3DMarker"";" \n
+                         "" \n
+                         "name3DMarker = """";" \n
+                         "publicVariable ""name3DMarker"";" \n
+                         "" \n
+                         "//setup voting" \n
+                         "votes = 0;" \n
+                         "" \n
+                         "//Enable vote action" \n
+                         "" \n
+                         "voteEnabled = true;" \n
+                         "publicVariable ""voteEnabled"";" \n
+                         "" \n
+                         "hasVoted = false;" \n
+                         "publicVariable ""hasVoted"";" \n
+                         "" \n
+                         "{" \n
+                         "	if (isPlayer _x) then {" \n
+                         "		_x setPosATL SPAWN_POINT;" \n
+                         "	};" \n
+                         "} forEach allUnits;" \n
+                         "" \n
+                         "RESPAWN_MARKER = createMarker [""respawn_west"", SPAWN_POINT];" \n
+                         "missionPos = nil;" \n
+                         "" \n
+                         "allowRevive = false;" \n
+                         "publicVariable ""allowRevive"";" \n
+                         "" \n
+                         "showNames = false;" \n
+                         "publicVariable ""showNames"";" \n
+                         "" \n
+                         "//Remove old loot, stuff" \n
+                         "{" \n
+                         "	deleteVehicle _x;" \n
+                         "} forEach lootItems;" \n
+                         "" \n
+                         "//Setup teleports" \n
+                         "{" \n
+                         "	_tpBoard = ""MapBoard_altis_F"" createVehicle (_x select 0);" \n
+                         "	_tpBoard enableSimulationGlobal false;" \n
+                         "	_curPos = _x select 0;" \n
+                         "	_tpBoard setDir (_x select 1);" \n
+                         "	{" \n
+                         "		_isSameSpot = false;" \n
+                         "		if ((abs((_curPos select 0) - ((_x select 0) select 0)) < .001) && (abs((_curPos select 1) - ((_x select 0) select 1)) < .001) && (abs((_curPos select 2) - ((_x select 0) select 2)) < .001)) then {" \n
+                         "			_isSameSpot = true;" \n
+                         "		} else {" \n
+                         "			_isSameSpot = false;" \n
+                         "		};" \n
+                         "		if (!_isSameSpot) then {" \n
+                         "			[_tpBoard, [""Teleport to "" + (_x select 2), {_this execVM ""player\teleport.sqf""}, [_x select 0, _x select 1], 1.5, false, true, """", ""(mainFSM_State == 'Sandbox')"", 2]] remoteExec [""addAction"", 0, true];" \n
+                         "		};" \n
+                         "	} forEach tpPoints;" \n
+                         "	lootItems pushBack _tpBoard;" \n
+                         "} forEach tpPoints;" \n
+                         "" \n
+                         "//Refresh loot lists" \n
+                         "_weapons = + loot_Weapons; // + <array> to perform deep copy instead of = <array> for shallow copy" \n
+                         "_launchers = + loot_Launchers;" \n
+                         "_explosives = + loot_Explosives;" \n
+                         "_helis = + loot_Helicopters;" \n
+                         "_planes = + loot_Planes;" \n
+                         "_tanks = + loot_Armor;" \n
+                         "_cars = + loot_Automotives;" \n
+                         "_turrets = + loot_StaticArms;" \n
+                         "" \n
+                         "lootSpawnPoints_all = lootSpawnPoints_all - [];" \n
+                         "" \n
+                         "//Add new loot" \n
+                         "_curPos = [0, 0, 0];" \n
+                         "_curDir = 0;" \n
+                         "for ""i_initSandbox"" from 0 to ((count lootSpawnPoints_All) - 1) do { //for all loot spawn types" \n
+                         "	for ""j_initSandbox"" from 0 to ((count (lootSpawnPoints_All select i_initSandbox)) - 1) do { //for all loot spawns in that type" \n
+                         "		_curObj = (lootSpawnPoints_all select i_initSandbox) select j_initSandbox;" \n
+                         "		_lootItem = -1;" \n
+                         "		switch (i_initSandbox) do {" \n
+                         "   		case 0: {if (count(_weapons) <= 0) then {_weapons = + loot_Weapons;}; _lootItem = selectRandom _weapons; _weapons = _weapons - [_lootItem];};" \n
+                         "			case 1: {if (count(_launchers) <= 0) then {_launchers = + loot_Launchers;}; _lootItem = selectRandom _launchers; _launchers = _launchers - [_lootItem];};" \n
+                         "			case 2: {if (count(_explosives) <= 0) then {_explosives = + loot_Explosives;}; _lootItem = selectRandom _explosives; _explosives = _explosives - [_lootItem];};" \n
+                         "			case 3: {if (count(_helis) <= 0) then {_helis = + loot_Helicopters;}; _lootItem = selectRandom _helis; _helis = _helis - [_lootItem];};" \n
+                         "			case 4: {if (count(_planes) <= 0) then {_planes = + loot_Planes;}; _lootItem = selectRandom _planes; _planes = _planes - [_lootItem];};" \n
+                         "			case 5: {if (count(_tanks) <= 0) then {_tanks = + loot_Armor;}; _lootItem = selectRandom _tanks; _tanks = _tanks - [_lootItem];};" \n
+                         "			case 6: {if (count(_cars) <= 0) then {_cars = + loot_Automotives;}; _lootItem = selectRandom _cars; _cars = _cars - [_lootItem];};" \n
+                         "			case 7: {if (count(_turrets) <= 0) then {_turrets = + loot_StaticArms;}; _lootItem = selectRandom _turrets; _turrets = _turrets - [_lootItem];};" \n
+                         "  	 		default {systemChat ""Unknown loot type"";};" \n
+                         "		};" \n
+                         "		_curPos = [_curObj select 0, _curObj select 1, (_curObj select 2) + .05];" \n
+                         "		_curDir = (lootSpawnDirections_all select i_initSandbox) select j_initSandbox;" \n
+                         "		if (i_initSandbox >= 3) then {" \n
+                         "			_spawnedVehic = createVehicle [_lootItem, [0, 0, 300], [], 5, ""CAN_COLLIDE""];" \n
+                         "			_spawnedVehic setDir _curDir;" \n
+                         "			_spawnedVehic enableSimulationGlobal false;" \n
+                         "			if (i_initSandbox < 7) then {" \n
+                         "				[_spawnedVehic, [""Select this vehicle"", {_this execVM ""player\selectVehicle.sqf""}, nil, 0, false, true, """", ""(mainFSM_State == 'Sandbox')"", 5]] remoteExec [""addAction"", 0, true];" \n
+                         "			};" \n
+                         "			_safeCurPos = (_curPos findEmptyPosition [0, 10, _lootItem]);" \n
+                         "			if (!(_safeCurPos isEqualTo [])) then {" \n
+                         "				_spawnedVehic setPosATL _safeCurPos;" \n
+                         "				_spawnedVehic enableSimulationGlobal true;" \n
+                         "				lootItems pushBack _spawnedVehic;" \n
+                         "				_spawnedVehic setDamage 0; //full repair" \n
+                         "			} else {" \n
+                         "				deleteVehicle _spawnedVehic;" \n
+                         "			};" \n
+                         "		} else {" \n
+                         "			_carrierVehic = ""WeaponHolderSimulated_Scripted"" createVehicle [0, 0, 0];" \n
+                         "			_carrierVehic enableSimulationGlobal false;" \n
+                         "			_carrierVehic setDir _curDir;" \n
+                         "			_carrierVehic setPosATL _curPos;" \n
+                         "			_carrierVehic attachTo [LOOT_ANCHOR];" \n
+                         "			_carrierVehic enableSimulationGlobal true;" \n
+                         "			if (i_initSandbox == 2) then {" \n
+                         "				_carrierVehic addMagazineCargoGlobal [_lootItem, 3];" \n
+                         "			} else {" \n
+                         "				_ammo = getArray (configFile >> ""CfgWeapons"" >> _lootItem >> ""magazines"");" \n
+                         "				_ammo = _ammo - loot_Blacklist;" \n
+                         "				_carrierVehic addMagazineCargoGlobal [selectRandom _ammo, 3];" \n
+                         "				_carrierVehic addWeaponCargoGlobal [_lootItem, 1];" \n
+                         "			};" \n
+                         "			lootItems pushBack _carrierVehic;" \n
+                         "		};" \n
+                         "	};" \n
+                         "};" \n
+                         "" \n
+                         "{" \n
+                         "	_x setDamage 0;" \n
+                         "} forEach allPlayers;" \n
+                         "" \n
+                         "//systemChat ""initSandbox complete"";"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "true">*/
+                                class true
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="Sandbox";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Sandbox">*/
+                class Sandbox
+                {
+                        name = "Sandbox";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"mainFSM_State = ""Sandbox"";" \n
+                         "publicVariable ""mainFSM_State"";"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "__opStarted">*/
+                                class __opStarted
+                                {
+                                        itemno = 5;
+                                        priority = 1.000000;
+                                        to="Sandbox";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(opStarted);"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "true__low_pri_">*/
+                                class true__low_pri_
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="initSubMission";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(true);"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "initSubMission">*/
+                class initSubMission
+                {
+                        name = "initSubMission";
+                        itemno = 7;
+                        init = /*%FSM<STATEINIT""">*/"mainFSM_State = ""initSubMission"";" \n
+                         "publicVariable ""mainFSM_State"";" \n
+                         "//systemChat mainFSM_State;" \n
+                         "" \n
+                         "//Enable vote action" \n
+                         "voteEnabled = true;" \n
+                         "publicVariable ""voteEnabled"";" \n
+                         "" \n
+                         "hasVoted = false;" \n
+                         "publicVariable ""hasVoted"";" \n
+                         "" \n
+                         "//Delete sandbox stuff" \n
+                         "{" \n
+                         "	deleteVehicle _x;" \n
+                         "} forEach lootItems;" \n
+                         "" \n
+                         "//Following 3 variables may be modified in individual mission files." \n
+                         "//------------------------------------------------------------------" \n
+                         "allowRevive = true;" \n
+                         "publicVariable ""allowRevive"";" \n
+                         "" \n
+                         "showNames = true;" \n
+                         "publicVariable ""showNames"";" \n
+                         "" \n
+                         "respawnAllowed = false;" \n
+                         "publicVariable ""respawnAllowed"";" \n
+                         "[1, ""player\resetTickets.sqf""] remoteExec [""execVM""];" \n
+                         "//------------------------------------------------------------------" \n
+                         "" \n
+                         "_masterOpList = []; //divide mission list" \n
+                         "_masterVehicleOpList = [];" \n
+                         "{" \n
+                         "	if (_x select 1) then {" \n
+                         "		_masterVehicleOpList pushBack (_x select 0);" \n
+                         "	} else {" \n
+                         "		_masterOpList pushBack (_x select 0);" \n
+                         "	};" \n
+                         "} forEach missionList;" \n
+                         "" \n
+                         "_opList = + _masterOpList; //deep copy master lists into scratch lists" \n
+                         "_vehicleOpList = + _masterVehicleOpList;" \n
+                         "" \n
+                         "playerVehicles = [];" \n
+                         "[""player\tellServerSelVeh.sqf""] remoteExec [""execVM""];" \n
+                         "" \n
+                         "missionEnded = false;" \n
+                         "lastMissionPos = SPAWN_POINT;" \n
+                         "missionPos = [0, 0, 0];" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "true">*/
+                                class true
+                                {
+                                        itemno = 8;
+                                        priority = 0.000000;
+                                        to="waitVehList";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "SubMission">*/
+                class SubMission
+                {
+                        name = "SubMission";
+                        itemno = 9;
+                        init = /*%FSM<STATEINIT""">*/"mainFSM_State = ""SubMission"";" \n
+                         "publicVariable ""mainFSM_State"";" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "opEnded">*/
+                                class opEnded
+                                {
+                                        itemno = 11;
+                                        priority = 2.000000;
+                                        to="Delay_3";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(opEnded);"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"lastMissionPos = missionPos;" \n
+                                         "missionPos = SPAWN_POINT;" \n
+                                         "[[lastMissionPos, missionPos, .1, false], ""player\uiMapTransition.sqf""] remoteExec [""execVM""];" \n
+                                         "[""player\setLoadout.sqf""] remoteExec [""execVM""];" \n
+                                         "_opEndedTime = diag_tickTime;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "missionEnded">*/
+                                class missionEnded
+                                {
+                                        itemno = 12;
+                                        priority = 1.000000;
+                                        to="Delay_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(missionEnded);"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/"//setup rules..." \n
+                                         "//--------------" \n
+                                         "allowRevive = true;" \n
+                                         "publicVariable ""allowRevive"";" \n
+                                         "" \n
+                                         "showNames = false;" \n
+                                         "publicVariable ""showNames"";" \n
+                                         "" \n
+                                         "respawnAllowed = true;" \n
+                                         "publicVariable ""respawnAllowed"";" \n
+                                         "[1, ""player\resetTickets.sqf""] remoteExec [""execVM""];" \n
+                                         "//--------------" \n
+                                         "" \n
+                                         "execVM ""player\respawnAll.sqf"";" \n
+                                         "" \n
+                                         "_subminTime = diag_tickTime;"/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "true__low_pri_">*/
+                                class true__low_pri_
+                                {
+                                        itemno = 10;
+                                        priority = 0.000000;
+                                        to="SubMission";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(true);"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Delay">*/
+                class Delay
+                {
+                        name = "Delay";
+                        itemno = 13;
+                        init = /*%FSM<STATEINIT""">*/"mainFSM_State = ""Delay"";" \n
+                         "publicVariable ""mainFSM_State"";"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "___1_sec_">*/
+                                class ___1_sec_
+                                {
+                                        itemno = 15;
+                                        priority = 1.000000;
+                                        to="Delay";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(diag_tickTime - _initTime) <= 1;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "true__low_pri_">*/
+                                class true__low_pri_
+                                {
+                                        itemno = 14;
+                                        priority = 0.000000;
+                                        to="initSandbox";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "spawnSubMission">*/
+                class spawnSubMission
+                {
+                        name = "spawnSubMission";
+                        itemno = 16;
+                        init = /*%FSM<STATEINIT""">*/"missionEnded = false;" \n
+                         "missionStarted = true;" \n
+                         "opStarted = true;" \n
+                         "opEnded = false;" \n
+                         "" \n
+                         "mainFSM_State = ""spawnSubMission"";" \n
+                         "publicVariable ""mainFSM_State"";" \n
+                         "//systemChat mainFSM_State;" \n
+                         "" \n
+                         "//setup rules..." \n
+                         "//--------------" \n
+                         "allowRevive = true;" \n
+                         "publicVariable ""allowRevive"";" \n
+                         "" \n
+                         "showNames = false;" \n
+                         "publicVariable ""showNames"";" \n
+                         "" \n
+                         "respawnAllowed = true;" \n
+                         "publicVariable ""respawnAllowed"";" \n
+                         "[1, ""player\resetTickets.sqf""] remoteExec [""execVM""];" \n
+                         "" \n
+                         "show3DMarker = false;" \n
+                         "publicVariable ""show3DMarker"";" \n
+                         "" \n
+                         "pos3DMarker = [0, 0, 0];" \n
+                         "publicVariable ""pos3DMarker"";" \n
+                         "" \n
+                         "name3DMarker = """";" \n
+                         "publicVariable ""name3DMarker"";" \n
+                         "//--------------" \n
+                         "" \n
+                         "_abort = false;" \n
+                         "_allowVehicleMission = false;" \n
+                         "" \n
+                         "playerVehicles = playerVehicles - [""""];" \n
+                         "" \n
+                         "if (count(playerVehicles) > 0) then {" \n
+                         "	_allowVehicleMission = true;" \n
+                         "};" \n
+                         "" \n
+                         "if (count(_opList) <= 0) then {" \n
+                         "	if (_allowVehicleMission) then {" \n
+                         "		_opList = _masterOpList + _masterVehicleOpList;" \n
+                         "	} else {" \n
+                         "		_opList = + _masterOpList;" \n
+                         "	};" \n
+                         "" \n
+                         "	if (count (_opList) <= 0) then {" \n
+                         "		systemChat ""ERROR: No missions in list!"";" \n
+                         "		systemChat ""Aborting operation!"";" \n
+                         "		abort = true;" \n
+                         "	};" \n
+                         "};" \n
+                         "" \n
+                         "_ssubmisTime = -1;" \n
+                         "if (!_abort) then {" \n
+                         "" \n
+                         "	_op = selectRandom _opList;" \n
+                         "	_opList = _opList - [_op];" \n
+                         "" \n
+                         "	missionDesc = call compile preprocessFileLineNumbers (missionDirectory + ""descriptions\"" + _op);" \n
+                         "	publicVariable ""missionDesc"";" \n
+                         "" \n
+                         "	_op = (missionDirectory + ""types\"" + _op);" \n
+                         "" \n
+                         "	//find mission pos" \n
+                         "	_tpCandidates = [];" \n
+                         "	for ""_i"" from 0 to 9 do { //find 10 positions" \n
+                         "		_randPos = [] call BIS_fnc_randomPos;" \n
+                         "		_tempPos = [_randPos, 0, 20, .5, 1, 0, 0, [], _randPos] call BIS_fnc_findSafePos; //find safe position to teleport players to" \n
+                         "		_tempPos = [_tempPos select 0, _tempPos select 1, 0]; //convert 2D position to 3D" \n
+                         "		_tpCandidates pushBack _tempPos;" \n
+                         "	};" \n
+                         "	if (!(missionPos isEqualTo [0, 0, 0])) then {" \n
+                         "	lastMissionPos = missionPos;" \n
+                         "	};" \n
+                         "	missionPos = selectRandom _tpCandidates; //pick one of the 10" \n
+                         "" \n
+                         "	//map transition" \n
+                         "	[[lastMissionPos, missionPos, .1, true], ""player\uiMapTransition.sqf""] remoteExec [""execVM""];" \n
+                         "" \n
+                         "	[_op, missionPos] spawn { //run in scheduled environment" \n
+                         "		sleep 3;" \n
+                         "		(_this select 1) execVM (_this select 0); //Run selected script file. Pass in mission position as args" \n
+                         "	};" \n
+                         "" \n
+                         "	{" \n
+                         "		_x setDamage 0;" \n
+                         "	} forEach allPlayers;" \n
+                         "" \n
+                         "	[""player\setLoadout.sqf""] remoteExec [""execVM""];" \n
+                         "" \n
+                         "	opStarted = true;" \n
+                         "	opEnded = false;" \n
+                         "	missionStarted = true;" \n
+                         "	missionEnded = false;" \n
+                         "" \n
+                         "	_ssubmisTime = diag_tickTime;" \n
+                         "} else {" \n
+                         "	opStarted = false;" \n
+                         "	opEnded = true;" \n
+                         "	missionStarted = false;" \n
+                         "	missionEnded = false;" \n
+                         "" \n
+                         "	_ssubmisTime = diag_tickTime - 2; //skip delay" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "true">*/
+                                class true
+                                {
+                                        itemno = 19;
+                                        priority = 0.000000;
+                                        to="Delay_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Delay_1">*/
+                class Delay_1
+                {
+                        name = "Delay_1";
+                        itemno = 20;
+                        init = /*%FSM<STATEINIT""">*/"mainFSM_State = ""Delay"";" \n
+                         "publicVariable ""mainFSM_State"";"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "___2_sec_">*/
+                                class ___2_sec_
+                                {
+                                        itemno = 22;
+                                        priority = 1.000000;
+                                        to="Delay_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(diag_tickTime - _ssubmisTime) < 2;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "true__low_pri_">*/
+                                class true__low_pri_
+                                {
+                                        itemno = 21;
+                                        priority = 0.000000;
+                                        to="SubMission";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Delay_2">*/
+                class Delay_2
+                {
+                        name = "Delay_2";
+                        itemno = 23;
+                        init = /*%FSM<STATEINIT""">*/"mainFSM_State = ""Delay"";" \n
+                         "publicVariable ""mainFSM_State"";"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "___1_sec_">*/
+                                class ___1_sec_
+                                {
+                                        itemno = 25;
+                                        priority = 1.000000;
+                                        to="Delay_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(diag_tickTime - _subminTime) < 5;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "true__low_pri_">*/
+                                class true__low_pri_
+                                {
+                                        itemno = 24;
+                                        priority = 0.000000;
+                                        to="spawnSubMission";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Delay_3">*/
+                class Delay_3
+                {
+                        name = "Delay_3";
+                        itemno = 26;
+                        init = /*%FSM<STATEINIT""">*/"mainFSM_State = ""Delay"";" \n
+                         "publicVariable ""mainFSM_State"";"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "___1_sec_">*/
+                                class ___1_sec_
+                                {
+                                        itemno = 27;
+                                        priority = 1.000000;
+                                        to="Delay_3";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(diag_tickTime - _opEndedTime) < 1;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "true__low_pri_">*/
+                                class true__low_pri_
+                                {
+                                        itemno = 28;
+                                        priority = 0.000000;
+                                        to="initSandbox";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "waitVehList">*/
+                class waitVehList
+                {
+                        name = "waitVehList";
+                        itemno = 29;
+                        init = /*%FSM<STATEINIT""">*/"mainFSM_State = ""waitVehList"";" \n
+                         "publicVariable ""mainFSM_State"";"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "veh___players">*/
+                                class veh___players
+                                {
+                                        itemno = 31;
+                                        priority = 1.000000;
+                                        to="waitVehList";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(count(playerVehicles) < count(allPlayers));"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "true__low_pri_">*/
+                                class true__low_pri_
+                                {
+                                        itemno = 30;
+                                        priority = 0.000000;
+                                        to="spawnSubMission";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true;"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="initMission";
+        finalStates[] =
+        {
+        };
+};
+/*%FSM</COMPILE>*/
