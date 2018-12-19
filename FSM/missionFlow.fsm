@@ -73,7 +73,7 @@ link36[] = {29,30};
 link37[] = {29,31};
 link38[] = {30,16};
 link39[] = {31,29};
-globals[] = {0.000000,0,0,0,0,640,480,1,39,6316128,1,-340.635376,366.846832,445.029114,-373.302795,868,1004,1};
+globals[] = {0.000000,0,0,0,0,640,480,1,39,6316128,1,-414.921021,441.132355,530.953857,-459.227631,868,1004,1};
 window[] = {2,-1,-1,-32000,-32000,867,120,1627,18,3,886};
 *//*%FSM</HEAD>*/
 class FSM
@@ -668,10 +668,23 @@ class FSM
                          "};" \n
                          "" \n
                          "if (count(_opList) <= 0) then {" \n
-                         "	if (_allowVehicleMission) then {" \n
-                         "		_opList = _masterOpList + _masterVehicleOpList;" \n
-                         "	} else {" \n
-                         "		_opList = + _masterOpList;" \n
+                         "" \n
+                         "	_opList = + _masterOpList; //normal missions" \n
+                         "" \n
+                         "	if (_allowVehicleMission) then { //vehicle missions" \n
+                         "		_opList = _opList + _masterVehicleOpList;" \n
+                         "	};" \n
+                         "" \n
+                         "	if (playerWeaponTypes select 0) then { //anti tank missions" \n
+                         "		_opList = _opList + _masterAntiTankOpList;" \n
+                         "	};" \n
+                         "" \n
+                         "	if (playerWeaponTypes select 1) then { //anti air missions" \n
+                         "		_opList = _opList + _masterAntiAirOpList;" \n
+                         "" \n
+                         "		if (playerWeaponTypes select 0) then { //anti tank and anti air missions" \n
+                         "			_opList = _opList + _masterAntiTankAndAirList;" \n
+                         "		};" \n
                          "	};" \n
                          "" \n
                          "	if (count (_opList) <= 0) then {" \n
