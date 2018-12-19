@@ -7,8 +7,8 @@ Supports any weapon/vehicle/clothing/etc mod
 
 Supports blacklisting classnames so that they do not spawn in the sandbox.
 	Do this by adding classnames to the array in loot\blacklist.sqf
-	
-	Mission comes out of the box with many duplicate classes blacklisted already, such as extra camos or variants of models with different magazine models
+
+Mission comes out of the box with many duplicate classes blacklisted already, such as extra camos or variants of models with different magazine models
 	
 
 Supports adding custom missions:
