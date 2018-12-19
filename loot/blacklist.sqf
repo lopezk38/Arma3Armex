@@ -1538,5 +1538,10 @@ loot_Blacklist = [
 	"CUP_WV_B_RAM_Launcher",
 	"CUP_WV_B_RAM_Launcher_naval",
 	"CUP_WV_B_Phalanx",
-	"CUP_WV_B_CRAM"
+	"CUP_WV_B_CRAM",
+	"CUP_launch_MAAWS",
+	"launch_MRAWS_olive_rail_F",
+	"launch_MRAWS_sand_rail_F",
+	"launch_MRAWS_green_F",
+	"launch_MRAWS_olive_F"
 ];
