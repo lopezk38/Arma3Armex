@@ -1,4 +1,4 @@
-
+disableSerialization;
 
 [] spawn {
 

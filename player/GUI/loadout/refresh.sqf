@@ -1,5 +1,7 @@
 waitUntil {!(isNull findDisplay 5000)};
 
+disableSerialization;
+
 _loadoutLB = ((findDisplay 5000) displayCtrl 4);
 _vehLB = ((findDisplay 5000) displayCtrl 6);
 lnbClear _loadoutLB;

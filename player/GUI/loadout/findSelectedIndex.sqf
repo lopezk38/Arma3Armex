@@ -1,4 +1,7 @@
 waitUntil {!(isNull findDisplay 5000)};
+
+disableSerialization;
+
 _loadoutLB = ((findDisplay 5000) displayCtrl 4);
 
 _index = lbCurSel _loadoutLB;
