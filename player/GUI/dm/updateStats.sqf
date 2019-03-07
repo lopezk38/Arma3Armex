@@ -4,9 +4,6 @@ if (isNil "playerStatsDM") exitWith {diag_log "ERROR @ player\GUI\dm\updateStats
 _player = _this select 0;
 _killer = _this select 1;
 
-diag_log _player;
-diag_log _killer;
-
 _playerIndex = playerStatsDM find (getPlayerUID _player);
 _killerIndex = playerStatsDM find (getPlayerUID _killer);
 
@@ -61,7 +58,6 @@ _sortStats = {
 			_sortedArrayDeaths deleteRange [_maxAtIndex - 1, 2];
 		};
 		playerStatsDM = _sortedArrayKills;
-		diag_log playerStatsDM;
 	};
 };
 
@@ -73,7 +69,6 @@ if (_playerIndex == -1) then { //case: player not in list, maybe joined in progr
 };
 
 if (_player == _killer) then { //suicide
-	diag_log "suicide";
 	(playerStatsDM select (_playerIndex + 1)) set [1, ((playerStatsDM select (_playerIndex + 1)) select 1) - 1]; //decrement kills
 	(playerStatsDM select (_playerIndex + 1)) set [2, ((playerStatsDM select (_playerIndex + 1)) select 2) + 1]; //increment deaths
 } else {
