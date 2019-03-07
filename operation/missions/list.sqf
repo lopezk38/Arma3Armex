@@ -33,7 +33,7 @@
 missionDirectory = "operation\missions\";
 
 missionList = [ //list of mission arrays. Mission array format: ["missionFileName", identifier <integer, see above>]
-	//["defendBase.sqf", 0],
-	//["attackBase.sqf", 0],
+	["defendBase.sqf", 0],
+	["attackBase.sqf", 0],
 	["deathmatch.sqf", 0]
 ];
