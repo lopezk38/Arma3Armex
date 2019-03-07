@@ -128,3 +128,5 @@ deleteMarker BASE_MARKER;
 {
 	deleteVehicle _x; //delete base
 } forEach _baseObjects;
+
+currentMission = nil;
