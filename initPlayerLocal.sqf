@@ -11,6 +11,8 @@ voteEnabled = true;
 playerLoadout = [];
 playerVehicle = "";
 
+SubscribeToRespawnEvent = [];
+
 [player, -1 * ([player] call BIS_fnc_respawnTickets)] call BIS_fnc_respawnTickets; //clear player tickets
 
 //Show player names below them, enable/disable revives

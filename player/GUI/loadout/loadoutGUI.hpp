@@ -19,7 +19,7 @@ class loadoutGUI {
 			y = -.0275;
 			w = 1;
 			h = .15;
-			text = "Manage your Loadout"
+			text = "Manage your Loadout";
 			sizeEx = .1;
 			shadow = 0;
 		};

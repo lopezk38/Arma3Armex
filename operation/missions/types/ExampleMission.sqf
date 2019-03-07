@@ -7,6 +7,9 @@ _missionPos = _this; //Setup mission position variable for your use
 allowRevive = true;
 publicVariable "allowRevive";
 
+RESPAWN_DELAY = 5;
+publicVariable "RESPAWN_DELAY";
+
 showNames = true;
 publicVariable "showNames";
 
@@ -75,6 +78,7 @@ if ((allPlayers - allDeadMen) isEqualTo []) then {
 sleep 2;
 
 missionEnded = true; //end mission
+currentMission = null;
 
 //Cleanup below! DONT FORGET!
 

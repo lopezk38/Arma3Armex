@@ -37,11 +37,15 @@ Supports ports to other maps simply by placing cones in 3Den editor and putting 
 	For spawn point (Place this cone first in the editor since it's used to declare variables used by other cones):
 	
 		SPAWN_POINT = getPosATL this;
+		SPAWN_DIR = getDir this;
 
 		createMarker ["spawn", getPosATL this];
 		"spawn" setMarkerType "hd_dot";
 		"spawn" setMarkerText "Spawn";
 		"spawn" setMarkerColor "ColorBlue";
+		
+		RESPAWN_DELAY = 5;
+		publicVariable "RESPAWN_DELAY";
 
 		tpPoints = [];
 

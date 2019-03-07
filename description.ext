@@ -60,3 +60,4 @@ class RscTitles
 
 #include "player\GUI\defines.hpp"
 #include "player\GUI\loadout\loadoutGUI.hpp"
+#include "player\GUI\dm\dmScoreBoard.hpp"

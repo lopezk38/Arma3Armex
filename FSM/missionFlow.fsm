@@ -3,7 +3,7 @@
 /*
 item0[] = {"initMission",0,250,-29.214203,-633.183594,60.785797,-583.183594,0.000000,"initMission"};
 item1[] = {"true",8,218,-30.558350,-566.218262,59.441650,-516.218262,0.000000,"true"};
-item2[] = {"initSandbox",2,250,-35.180023,-346.339783,54.819992,-296.339783,0.000000,"initSandbox"};
+item2[] = {"initSandbox",2,4346,-35.180023,-346.339783,54.819992,-296.339783,0.000000,"initSandbox"};
 item3[] = {"true",8,218,-34.986702,-270.426392,55.013306,-220.426392,0.000000,"true"};
 item4[] = {"Sandbox",2,250,-34.840488,-191.932480,55.159531,-141.932480,0.000000,"Sandbox"};
 item5[] = {"__opStarted",4,218,-137.577637,-192.295700,-47.577637,-142.295700,1.000000,"!opStarted"};
@@ -17,7 +17,7 @@ item12[] = {"missionEnded",4,218,-233.349976,500.915588,-143.349976,550.915588,1
 item13[] = {"Delay",2,250,-31.403168,-490.185120,58.596848,-440.185120,0.000000,"Delay"};
 item14[] = {"true__low_pri_",8,218,-32.018410,-420.754395,57.981598,-370.754272,0.000000,"true (low pri)"};
 item15[] = {"___1_sec_",4,218,-132.932404,-491.653015,-42.932404,-441.652954,1.000000,"!(1 sec)"};
-item16[] = {"spawnSubMission",2,4346,-32.346622,222.981964,57.653397,272.981873,0.000000,"spawnSubMission"};
+item16[] = {"spawnSubMission",2,250,-32.346622,222.981964,57.653397,272.981873,0.000000,"spawnSubMission"};
 item17[] = {"",7,210,115.612984,-325.410736,123.612984,-317.410736,0.000000,""};
 item18[] = {"",7,210,-192.372650,244.456314,-184.372650,252.456390,0.000000,""};
 item19[] = {"true",8,218,-32.213745,287.373901,57.786255,337.373901,0.000000,"true"};
@@ -73,8 +73,8 @@ link36[] = {29,30};
 link37[] = {29,31};
 link38[] = {30,16};
 link39[] = {31,29};
-globals[] = {0.000000,0,0,0,0,640,480,1,39,6316128,1,-414.921021,441.132355,530.953857,-459.227631,868,1004,1};
-window[] = {2,-1,-1,-32000,-32000,867,120,1627,18,3,886};
+globals[] = {0.000000,0,0,0,0,640,480,1,39,6316128,1,-318.209625,344.420166,16.031372,-750.420593,868,1004,1};
+window[] = {2,-1,-1,-1,-1,1005,121,1628,156,3,886};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -219,6 +219,10 @@ class FSM
                          "" \n
                          "respawnAllowed = true;" \n
                          "publicVariable ""respawnAllowed"";" \n
+                         "" \n
+                         "RESPAWN_DELAY = 5;" \n
+                         "publicVariable ""RESPAWN_DELAY"";" \n
+                         "" \n
                          "[1, ""player\resetTickets.sqf""] remoteExec [""execVM""];" \n
                          "" \n
                          "show3DMarker = false;" \n
@@ -243,11 +247,13 @@ class FSM
                          "" \n
                          "{" \n
                          "	if (isPlayer _x) then {" \n
-                         "		_x setPosATL SPAWN_POINT;" \n
+                         "		_x setDir SPAWN_DIR;" \n
+                         "		_x setPosATL ([[[SPAWN_POINT, 5]], [""water""]] call BIS_fnc_randomPos);" \n
                          "	};" \n
                          "} forEach allUnits;" \n
                          "" \n
                          "RESPAWN_MARKER = createMarker [""respawn_west"", SPAWN_POINT];" \n
+                         """respawn_west"" setMarkerDir SPAWN_DIR;" \n
                          "missionPos = nil;" \n
                          "" \n
                          "allowRevive = false;" \n
@@ -543,6 +549,10 @@ class FSM
                                         action=/*%FSM<ACTION""">*/"lastMissionPos = missionPos;" \n
                                          "missionPos = SPAWN_POINT;" \n
                                          "[[lastMissionPos, missionPos, .1, false], ""player\uiMapTransition.sqf""] remoteExec [""execVM""];" \n
+                                         "" \n
+                                         "currentMission = nil;" \n
+                                         "publicVariable ""currentMission"";" \n
+                                         "" \n
                                          "[""player\setLoadout.sqf""] remoteExec [""execVM""];" \n
                                          "_opEndedTime = diag_tickTime;"/*%FSM</ACTION""">*/;
                                 };
@@ -567,6 +577,9 @@ class FSM
                                          "publicVariable ""respawnAllowed"";" \n
                                          "[1, ""player\resetTickets.sqf""] remoteExec [""execVM""];" \n
                                          "//--------------" \n
+                                         "" \n
+                                         "currentMission = nil;" \n
+                                         "publicVariable ""currentMission"";" \n
                                          "" \n
                                          "execVM ""player\respawnAll.sqf"";" \n
                                          "" \n
@@ -641,6 +654,9 @@ class FSM
                          "allowRevive = true;" \n
                          "publicVariable ""allowRevive"";" \n
                          "" \n
+                         "RESPAWN_DELAY = 5;" \n
+                         "publicVariable ""RESPAWN_DELAY"";" \n
+                         "" \n
                          "showNames = false;" \n
                          "publicVariable ""showNames"";" \n
                          "" \n
@@ -699,6 +715,9 @@ class FSM
                          "" \n
                          "	_op = selectRandom _opList;" \n
                          "	_opList = _opList - [_op];" \n
+                         "" \n
+                         "	currentMission = _op;" \n
+                         "	publicVariable ""currentMission"";" \n
                          "" \n
                          "	missionDesc = call compile preprocessFileLineNumbers (missionDirectory + ""descriptions\"" + _op);" \n
                          "	publicVariable ""missionDesc"";" \n
